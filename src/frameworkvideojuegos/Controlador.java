@@ -11,6 +11,7 @@ import java.awt.image.BufferStrategy;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import javax.swing.RepaintManager;
 
 
 /**
@@ -56,6 +57,10 @@ public abstract class Controlador extends Thread implements KeyListener{
         vista = new Vista();
         
         vista.addKeyListener(this);
+        
+        RepaintManager rm = RepaintManager.currentManager(this.vista);
+ 
+        rm.setDoubleBufferingEnabled(true);
         
         vista.createBufferStrategy(2);
         
@@ -140,6 +145,8 @@ public abstract class Controlador extends Thread implements KeyListener{
         dibujarInterfazJuego(graphics);
         
         buffer.show();
+        
+        
         
     }
     

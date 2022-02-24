@@ -24,6 +24,8 @@ public class Vista extends JFrame{
        
         
     }
+    
+    
 
     private void pantallaCompleta(){
     
